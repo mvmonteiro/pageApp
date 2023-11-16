@@ -1,12 +1,13 @@
-import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import React from 'react'
+import { SafeAreaView, Text } from 'react-native';
+import Home from './src/pages/Home';
 
 function App() {
   return (
     <SafeAreaView>
-      <Text>Marcus</Text>
+      <Home />
     </SafeAreaView>
-  );
+  )
 }
 
-export default App;
+export default App
