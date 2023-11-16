@@ -1,8 +1,21 @@
 import React from 'react'
-import Top from './components/Top'
+import Productors from './components/Productors'
+import { SafeAreaView, ScrollView, StyleSheet } from 'react-native'
 
 export default function Home(){
     return(
-        <Top />
+        <>
+            <ScrollView>
+                <SafeAreaView style={styles.areaView}>
+                    <Productors />
+                </SafeAreaView>
+            </ScrollView>
+        </>
     )
 }
+
+const styles = StyleSheet.create({
+    areaView: {
+        flex: 1
+    }
+})
