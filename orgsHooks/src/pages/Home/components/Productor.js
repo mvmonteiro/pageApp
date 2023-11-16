@@ -1,22 +1,34 @@
-import React from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import React, { useState } from 'react'
+import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import Stars from '../../../components/Stars'
 
 export default function Productor({ list }){
+    const [selected, setSelected] = useState(false)
 
     return(
         <>
             {list.map( (productor) => (
-                <View key={productor.nome} style={styles.container} >
+                <TouchableOpacity
+                    key={productor.nome} 
+                    style={styles.container}
+                    onPress={() => setSelected(!selected)}
+                >
                     <Image source={productor.imagem} accessibilityLabel={productor.nome} style={styles.image}/>
                     <View style={styles.info} >
+                    <View>
                         <Text style={styles.name} >{productor.nome}</Text>
+                        <Stars
+                            quantidade={productor.estrelas}
+                            editavel={selected}
+                            grande={selected}
+                        />
+                    </View>
                         <Text style={styles.distance} >{productor.distancia}</Text>
                         
                     </View>
-                </View>
+                </TouchableOpacity>
             ))}
         </>
-        // <Text>nome</Text>
     )
 }
 
